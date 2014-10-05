@@ -1,0 +1,66 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  #addons-page .addon {
+    min-height: 32px !important;
+  }
+  #addons-page .addon[selected="true"] {
+    height: auto !important;
+  }
+  #addons-page #search-list .addon {
+    height: 32px !important;
+  }
+  #addons-page #search-list .addon[selected="true"] {
+    height: 58px !important;
+  }
+  #addons-page .description {
+    visibility: collapse !important;
+  }
+  #addons-page .addon[selected="true"] .description {
+    visibility: visible !important;
+  }
+  #addons-page .addon .icon-container {
+    margin: 0 16px !important;
+    max-height: 24px !important;
+    max-width: 24px !important;
+  }
+  #addons-page .addon[selected="true"] .icon-container {
+    margin: 0 4px !important;
+    max-height: 48px !important;
+    max-width: 48px !important;
+  }
+  #addons-page .addon .icon {
+    max-height: 24px !important;
+    max-width: 24px !important;
+  }
+  #addons-page .addon[selected="true"] .icon {
+    max-height: 48px !important;
+    max-width: 48px !important;
+  }
+  #addons-page .date-updated {
+    visibility: collapse !important;
+  }
+  #addons-page .addon[selected="true"] .date-updated {
+    visibility: visible !important;
+  }
+  #addons-page .addon .control-container {
+    margin: -24px 0 0 0 !important;
+  }
+  #addons-page .addon[selected="true"] .install-status {
+    margin: 0 !important;
+  }
+  .addon button.addon-control {
+    max-height: 22px !important;
+    min-height: 22px !important;
+  }
+  .addon button.addon-control .button-text {
+    margin-top: -3px !important;
+  }
+  #addons-page .addon[selected="true"] .control-container {
+    margin: 0 0 3px 0 !important;
+  }
+  #addons-page .update-info-container, #addons-page .install-status {
+    margin: -26px 0 27px 0 !important;
+    max-height: 24px !important;
+    min-height: 24px !important;
+    position: absolute !important;
+  }
+}
