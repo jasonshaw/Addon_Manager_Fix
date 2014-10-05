@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE dialog [<!ENTITY % fixDTD SYSTEM 'chrome://addonmanagerfix/locale/fix.dtd'>%fixDTD;]>
+<bindings xmlns="http://www.mozilla.org/xbl" xmlns:xbl="http://www.mozilla.org/xbl" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <binding id="addon-item" extends="chrome://mozapps/content/extensions/extensions.xml#addon-generic">
+    <implementation>
+      <method name="openEdit">
+        <body>
+          stylishCommon.openEditForId(this.mAddon.id);
+        </body>
+      </method>
+    </implementation>
+  </binding>
+  <binding id="addon-buttons">
+    <content>
+      <xul:button label="&title.edit;" class="addon-control" onmousedown="document.getBindingParent(document.getBindingParent(this)).openEdit();"/>
+      <xbl:children/>
+    </content>
+    <implementation/>
+  </binding>
+</bindings>
