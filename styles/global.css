@@ -1,0 +1,231 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  /**********/
+  /* GLOBAL */
+  /**********/
+
+  *|*:root {
+    padding: 0 10px 10px 10px !important;
+  }
+  .button-box,
+  .radio-label-box,
+  .checkbox-label-box,
+  .text-link {
+    border: 1px dotted transparent !important;
+    outline: none !important;
+  }
+  #header {
+    height: 47px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #addons-page #header + hbox {
+    margin: 0 !important;
+  }
+  #discover-view,
+  #search-view,
+  #updates-view {
+    padding: 0 !important;
+  }
+
+  /*******************/
+  /* HEADER GROUPING */
+  /*******************/
+/* 
+  SPACERS:
+    Keeping both flex spacers (#spacer1 & #spacer2) together, displays as a single flex spacer.
+    Or create non-flex spacer: {-moz-box-flex: 0 !important; width: ???px !important;} 
+    Or display: none !important; 
+*/
+/*
+  #sonco-item-cnt {-moz-box-ordinal-group: 1 !important;}
+  #list-sorters {-moz-box-ordinal-group: 2 !important;}
+  #spacer1 {-moz-box-ordinal-group: 3 !important;}
+  #spacer2 {-moz-box-ordinal-group: 4 !important;}
+  #updates-container {-moz-box-ordinal-group: 5 !important;}
+  #header-utils-btn {-moz-box-ordinal-group: 6 !important;}
+  #do-restart {-moz-box-ordinal-group: 7 !important;}
+  #header-search {-moz-box-ordinal-group: 8 !important;}
+*/
+  /******************/
+  /* HEADER SECTION */
+  /******************/
+  
+  button#new-userstyle {
+    /*max-height: 27px !important;*/
+  }
+  #header-utils-btn, 
+  #header-search {
+    box-shadow: none !important;
+    height: 27px !important;
+  }
+  button#userstyle-sorting-status, 
+  button#userstyle-sorting-name, 
+  button#userstyle-sorting-type {
+    /*max-height: 27px !important;*/
+  }
+  #addons-page #button-container .addon-control {
+    max-height: 23px !important;
+    min-height: 23px !important;
+    padding: 0 4px !important;
+  }
+  #addons-page #button-container label.addon-control {
+    padding: 2px 4px !important;
+  }
+  .sorter {
+    font-weight: bold !important;
+    height: 23px !important;
+    margin: 0 !important;
+  }
+  .sorter[label="Name"],
+  .sorter[label="Last Updated"],
+  #search-sorters .sorter[label="Status"],
+  #greasemonkey-sort-bar .sorter[label="Status"],
+  #userstyle-sorting-status[label="Enabled"] {
+    margin: 0 4px 0 0 !important;
+  }
+  .sorter[label="Id"] {
+    margin-left: 4px !important;
+  }
+  .sorter .button-box {
+    background: transparent !important;
+  }
+  .sorter[checkState="1"], 
+  .sorter[checkState="2"], 
+  #header-utils-btn dropmarker,
+  #header .button-menu-dropmarker {
+    list-style-image: url(chrome://addonmanagerfix/skin/arrows.png) !important;
+  }
+  #updates-container label,
+  #updates-container button,
+  #updates-container button .button-box {
+    height: 27px !important;
+    margin: 0 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+  } 
+  #updates-container label {
+    border-radius: 4px !important;
+    font-weight: bold !important;
+    padding: 4px 6px !important;
+  }
+  #updates-container button,
+  #updates-container button .button-box {
+    background: none !important;
+    border: none !important;
+    min-width: 32px !important;
+    padding: 0 !important;
+  }
+
+  /*************************/
+  /* ADDON MANAGER SECTION */
+  /*************************/
+
+ .name-container {
+    font-size: 100% !important;
+  }
+  .name-container .name {
+    border-bottom: 1px solid transparent !important;
+    font-size: 140% !important;
+  }
+  .name-container .name:hover {
+    border-bottom: 1px solid !important;
+  }
+  .name-container .version,
+  .name-container .id {
+    font-size: 110% !important;
+    padding-top: 2px !important;
+  }
+  .name-container .sonco-postfixicon, 
+  .name-container button.details.button-link {
+    padding-top: 2px !important;
+  }
+  .addon[active="false"] .name {
+    opacity: .3 !important;
+  }
+  .addon[active="false"]:hover .name {
+    opacity: 1 !important;
+  }
+  .button-link,
+  .text-link {
+    text-decoration: none !important;
+  }    
+  .addon .disabled-postfix {
+    margin: 0 3px 0px 3px !important;
+    padding: 0 !important;
+  }
+  button.details {
+    min-width: 16px !important;
+    padding: 0 !important;
+    width: 16px !important;
+  }    
+  #detail-screenshot {
+    background: linear-gradient(rgba(241, 242, 243, .65), rgba(236, 237, 238, .17) 49%, rgba(231, 232, 233, .15) 51%, rgba(225, 226, 229, .3)) !important;
+    border: 2px solid !important;
+    -moz-border-top-colors: #333 #999 !important; 
+    -moz-border-right-colors: #333 #999 !important; 
+    -moz-border-bottom-colors: #333 #999 !important; 
+    -moz-border-left-colors: #333 #999 !important;
+    box-shadow: inset -2px -2px 1px #222, 2px 2px 2px #333 !important;
+    border-radius: 8px !important;
+    padding: 5px 8px 8px 5px !important;
+  }
+  #header-utils-btn menupopup {
+    min-width: 290px !important;
+  }
+  menuitem {
+    -moz-appearance: none !important;
+    -moz-binding: url(chrome://global/content/bindings/menu.xml#menuitem-iconic) !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: 22px !important;
+  }
+  menuitem[disabled="true"]:hover {
+    background: transparent !important;
+  }
+  menuitem:not([disabled="true"]):not([id^="throbber"]):hover {
+    background: #333 !important;
+    color: #FFF !important;
+  }
+  textbox menuitem {
+    text-align: left !important;
+  } 
+  #utils-menu checkbox {
+    -moz-appearance: none !important;
+    height: 22px !important;
+    list-style-image: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #utils-menu checkbox .checkbox-check {
+    border: none !important;
+    margin: 0 8px 0 4px !important;
+    height: 16px !important;
+    width: 16px !important;
+  }
+  #utils-menu checkbox .checkbox-icon {
+    display: none !important;
+  }
+  #utils-menu checkbox .checkbox-label-box {
+    margin: 0 !important;
+  }
+  #detail-view setting label.preferences-title {
+    border: none !important;
+    margin: 0 12px 0 8px !important;
+  }
+  setting > setting {
+    direction: rtl !important;
+    border: none !important;
+  }
+  #detail-rows > setting {
+    -moz-box-align: center !important;
+    min-height: 30px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #detail-rows > setting[first-row="true"] {
+    margin-top: 32px !important;
+  }
+  setting checkbox {
+    margin: 0 -8px 0 0 !important;
+  }
+}
