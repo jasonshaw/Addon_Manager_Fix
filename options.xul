@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE window SYSTEM "chrome://addonmanagerfix/locale/fix.dtd">
+<box xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <setting id="control1" class="primary" type="control">
+    <setting id="bool-counts" class="" type="bool" title="&title.counts;" pref="extensions.addonmanagerfix.counts"/>
+    <setting id="bool-restart" class="" type="bool" title="&title.restart;" pref="extensions.addonmanagerfix.restart"/>
+    <setting id="bool-headersearch" class="" type="bool" title="&title.headersearch;" pref="extensions.addonmanagerfix.headersearch"/>
+    <setting id="bool-searchbox" class="" type="bool" title="&title.searchbox;" pref="extensions.addonmanagerfix.searchbox"/>
+    <setting id="bool-menuitems" class="" type="bool" title="&title.menuitems;" pref="extensions.addonmanagerfix.menuitems"/>
+    <setting id="bool-menu" class="" type="bool" title="&title.menu;" pref="extensions.addonmanagerfix.menu"/>
+  </setting>
+  <setting id="control2" class="primary" type="control">
+    <setting id="bool-checkbox" class="" type="bool" title="&title.checkbox;" pref="extensions.addonmanagerfix.checkbox"/>
+    <setting id="bool-icons" class="" type="bool" title="&title.icons;" pref="extensions.addonmanagerfix.icons"/>
+    <setting id="bool-disabledicon" class="" type="bool" title="&title.disabledicon;" pref="extensions.addonmanagerfix.disabledicon"/>
+    <setting id="bool-disabledicon" class="" type="bool" title="&title.darktheme;" pref="extensions.addonmanagerfix.darktheme"/>
+    <setting id="bool-navigate" class="" type="bool" title="&title.navigate;" pref="extensions.addonmanagerfix.navigate"/>
+    <setting id="bool-slimlist" class="" type="bool" title="&title.slimlist;" pref="extensions.addonmanagerfix.slimlist"/>
+  </setting>
+  <setting id="control3" class="primary" type="control">
+    <button id="btn-organize" label="&title.organize;" oncommand="openDialog('chrome://addonmanagerfix/content/organize.xul')"/>
+    <button id="btn-generator" label="&title.generator;" oncommand="openDialog('chrome://addonmanagerfix/content/generator.xul')"/>
+  </setting>
+</box>
