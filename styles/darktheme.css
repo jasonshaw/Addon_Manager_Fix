@@ -1,0 +1,177 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  #addons-page {
+    background: #888 url(chrome://addonmanagerfix/skin/back.png) !important;
+  }
+  #addons-page #categories .category {
+    text-shadow: 1px 1px 2px #FFF !important;
+  }
+  #addons-page #sonco-item-cnt .itemCount {
+    background: #FFF !important; 
+    border-radius: 100% !important; 
+    padding: 2px 8px !important;
+  }
+  #addons-page #item-enabled {
+    color: #090 !important;
+  }
+  #addons-page #item-disabled {
+    color: #900 !important;
+  }
+  #view-port-container,
+  #addons-page .view-header,
+  #detail-contributions {
+    background: #888 url(chrome://addonmanagerfix/skin/back.png) !important; 
+    border: none !important; 
+  }
+  #addons-page .view-header {
+  }
+  #addons-page #addon-list, #addons-page #search-list {
+    background: #222 url(chrome://addonmanagerfix/skin/back3.png) !important; 
+    border: 1px solid #000 !important; 
+    margin-top: 2px !important;
+  }
+  #addons-page richlistitem .content-inner-container {
+    background: url(chrome://addonmanagerfix/skin/dots.png) repeat-y !important;
+    padding: 0 0 0 4px !important;
+  }
+  #addons-page .addon,
+  .detail-row, 
+  .detail-row-complex, 
+  setting {
+    background: #555 url(chrome://addonmanagerfix/skin/back.png) !important; 
+    -moz-border-bottom-colors: #000 !important;
+    -moz-border-top-colors: #666 !important; 
+    border-bottom: 1px solid !important;
+    border-top: 1px solid !important;
+    padding: 0 0 3px 0 !important;
+    text-shadow: 1px 1px 2px #000 !important;
+  }
+  #addons-page .addon:not([active="false"]):hover {
+    background: #666 url(chrome://addonmanagerfix/skin/back.png) !important; 
+  }
+  #addons-page .addon[active="false"] {
+    background: #600 url(chrome://addonmanagerfix/skin/back2.png) !important; 
+  }
+  #addons-page .addon[active="false"]:hover {
+    background: #800 url(chrome://addonmanagerfix/skin/back2.png) !important; 
+  }
+  #addons-page .addon[active="false"] .name,
+  #addons-page .addon[active="false"] .version,
+  #addons-page .addon[active="false"] .id,
+  #addons-page .addon[active="false"] .date-updated {
+    font-style: italic !important;
+    opacity: .65 !important;
+  }
+  #addons-page .addon .name,
+  #addons-page .addon .description {
+    color: tan !important;
+    opacity: 1 !important;
+  }
+  #addons-page .addon .version,
+  #addons-page .addon .id,
+  #addons-page .addon .description,
+  #addons-page .addon .date-updated {
+    color: #CCC !important;
+  }
+  #detail-notifications {
+    margin-top: 0 !important;
+  }
+  #addons-page #list-view .warning,
+  #addons-page #list-view .pending,
+  #addons-page #list-view .error {
+    background: url(chrome://addonmanagerfix/skin/dots.png) no-repeat left center !important;
+    color: #FF0 !important;
+    margin-left: 56px !important;
+    padding: 0 0 0 8px !important;
+  }
+  .detail-view-container {
+    background: #555 url(chrome://addonmanagerfix/skin/back.png) !important; 
+    color: tan !important;
+    margin-top: 2px !important;
+  }
+  #addons-page #detail-view .text-link,
+  #pending-container .button-link {
+    color: #999 !important;
+  }
+  #addons-page #detail-name-container,
+  #addons-page #detail-view .text-link:hover,
+  #detail-contrib-description,
+  #pending-container .button-link:hover {
+    color: #FFF !important;
+  }
+  #detail-contrib-suggested {
+    color: #CCC !important;
+  }
+  #pending-container {
+    color: #FF0 !important;
+  }
+  .update-info-container, .install-status {
+    color: #FF0 !important;
+  }
+  .pending .button-link {
+    color: tan !important;
+  }
+  .pending .button-link:hover {
+    text-decoration: underline !important;
+  }
+  .pending-icon {
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+    -moz-image-region: rect(16px 208px 32px 192px) !important;
+    height: 16px !important;
+    width: 16px !important;
+  }
+  .relnotes-toggle {
+    color: pink !important;
+  }
+  .relnotes-container {
+    color: #FF0 !important;
+  }
+  #search-allresults-link {
+    color: #FF0 !important;
+  }
+  .detail-view-container {
+    background: #222 url(chrome://addonmanagerfix/skin/back3.png) !important;
+  }
+  .detail-view-container button:not(#detail-contrib-btn) {
+    -moz-appearance: none !important;
+    background: linear-gradient(#FFF, #CCC) !important;
+    border: 1px solid #FFF !important;
+    border-radius: 3px !important; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset, 2px 2px 2px #222 !important;
+  }
+  .detail-view-container button:not(#detail-contrib-btn):hover {
+    background: linear-gradient(#CCC, #FFF) !important;
+  }
+  .detail-view-container button#detail-disable-btn .button-icon,
+  .detail-view-container button#detail-enable-btn .button-icon,
+  .detail-view-container button#detail-uninstall-btn .button-icon,
+  .detail-view-container button#detail-prefs-btn .button-icon,
+  .detail-view-container button#btn-generator .button-icon,
+  .detail-view-container button#btn-organize .button-icon {
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+    margin: 3px 6px 0 0 !important;
+  }
+  .detail-view-container button#detail-disable-btn .button-icon {
+    -moz-image-region: rect(0 176px 16px 160px) !important;
+  }
+  .detail-view-container button#detail-enable-btn .button-icon {
+    -moz-image-region: rect(32px 96px 48px 80px) !important;
+  }
+  .detail-view-container button#detail-prefs-btn .button-icon {
+    -moz-image-region: rect(32px 176px 48px 160px) !important;
+  }
+  .detail-view-container button#btn-generator .button-icon {
+    -moz-image-region: rect(64px 16px 80px 0) !important;
+  }
+  .detail-view-container button#detail-uninstall-btn .button-icon {
+    -moz-image-region: rect(64px 32px 80px 16px) !important;
+  }
+  .detail-view-container button#btn-organize .button-icon {
+    -moz-image-region: rect(64px 48px 80px 32px) !important;
+  }
+  #addons-page:not(#f) #search-list > hbox {
+    background: #222 url(chrome://addonmanagerfix/skin/back3.png) !important;
+  }
+  #addons-page .addon .disabled-postfix {
+    color: #FF0 !important;
+  }
+}
