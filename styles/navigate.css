@@ -1,0 +1,5 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  #sonco-nav {
+    display: -moz-box !important;
+  }
+}
