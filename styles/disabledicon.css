@@ -1,0 +1,10 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  richlistitem[active="false"] .sonco-postfixicon {
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+    -moz-image-region: rect(0 176px 16px 160px) !important;
+    margin: 0 0px 0px 3px !important;
+  }
+  .addon .disabled-postfix {
+    display: none !important;
+  }
+}
