@@ -1,0 +1,46 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  #category-search > .category-icon,
+  #category-discover > .category-icon,
+  #category-extension > .category-icon,
+  #category-theme > .category-icon,
+  #category-plugin > .category-icon,
+  #category-recentUpdates > .category-icon,
+  #category-availableUpdates > .category-icon,
+  #category-dictionary > .category-icon,
+  #category-service > .category-icon,
+  #category-custombuttons > .category-icon,
+  #addon-list .addon-view[type="plugin"] .icon {
+    list-style-image: url(chrome://addonmanagerfix/skin/categories.png) !important;
+  }
+  #category-search > .category-icon {
+    -moz-image-region: rect(0 32px 32px 0) !important;
+  }
+  #category-discover > .category-icon {
+    -moz-image-region: rect(0 64px 32px 32px) !important;
+  }
+  #category-extension > .category-icon {
+    -moz-image-region: rect(0 96px 32px 64px) !important;
+  }
+  #category-theme > .category-icon {
+    -moz-image-region: rect(0 128px 32px 96px) !important;
+  }
+  #category-plugin > .category-icon,
+  #addon-list .addon-view[type="plugin"] .icon {
+    -moz-image-region: rect(0 160px 32px 128px) !important;
+  }
+  #category-recentUpdates > .category-icon {
+    -moz-image-region: rect(0 192px 32px 160px) !important;
+  }
+  #category-availableUpdates > .category-icon  {
+    -moz-image-region: rect(0 224px 32px 192px) !important;
+  }
+  #category-dictionary > .category-icon  {
+    -moz-image-region: rect(0 256px 32px 224px) !important;
+  }
+  #category-service > .category-icon {
+    -moz-image-region: rect(32px 32px 64px 0) !important;
+  }
+  #category-custombuttons > .category-icon {
+    -moz-image-region: rect(32px 64px 64px 32px) !important;
+  }
+}
