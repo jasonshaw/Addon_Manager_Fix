@@ -1,0 +1,112 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  menu#sonco-options,
+  menuitem,
+  #rf-show-options-dialog .button-icon {
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+  }
+  menuitem#menuitem_showDetails {
+    -moz-image-region: rect(0 16px 16px 0) !important;
+  }
+  menuitem#menuitem_showDetails {
+    -moz-image-region: rect(0 16px 16px 0) !important;
+  }
+  menuitem#menuitem_preferences {
+    -moz-image-region: rect(0 32px 16px 16px) !important;
+  }
+  menuitem#menuitem_findUpdates {
+    -moz-image-region: rect(0 48px 16px 32px) !important;
+  }
+  menuitem#menuitem_about {
+    -moz-image-region: rect(0 64px 16px 48px) !important;
+  }
+  menuitem#menuitem_disableItem {
+    -moz-image-region: rect(0 224px 16px 208px) !important;
+  }
+  menuitem#menuitem_uninstallItem {
+    -moz-image-region: rect(0 96px 16px 80px) !important;
+  }
+  menuitem#menuitem_enableItem {
+    -moz-image-region: rect(0 208px 16px 192px) !important;
+  }
+  menuitem#menuitem_enableTheme {
+    -moz-image-region: rect(0 240px 16px 224px) !important;
+  }
+  menuitem#menuitem_disableTheme {
+    -moz-image-region: rect(0 256px 16px 240px) !important;
+  }
+  menuitem#menuitem_installItem {
+    -moz-image-region: rect(0 144px 16px 128px) !important;
+  }
+  menuitem#utils-updateNow {
+    -moz-image-region: rect(0 48px 16px 32px) !important;
+  }
+  menuitem#utils-viewUpdates {
+    -moz-image-region: rect(0 16px 16px 0) !important;
+  }
+  menuitem#utils-installFromFile {
+    -moz-image-region: rect(0 128px 16px 112px) !important;
+  }
+  menuitem#utils-autoUpdateDefault {
+    margin-left: -2px !important;
+  }
+  menuitem#utils-autoUpdateDefault label {
+    margin-left: -1px !important;
+  }
+  menuitem#utils-resetAddonUpdatesToAutomatic {
+    -moz-image-region: rect(0 112px 16px 96px) !important;
+  }
+  menuitem#utils-resetAddonUpdatesToManual {
+    -moz-image-region: rect(0 64px 16px 48px) !important;
+  }
+  menuitem#aomListing {
+    -moz-image-region: rect(16px 80px 32px 64px) !important;
+  }
+  menu#sonco-options {
+    -moz-image-region: rect(48px 48px 64px 32px) !important;
+  }
+  menuitem[command="cmd_userscript_edit"],
+  menuitem[command="cmd_custombuttons_edit"],
+  menuitem[label="Edit"] {
+    -moz-image-region: rect(0 80px 16px 64px) !important;
+  }
+  menuitem[command="cmd_userscript_execute_first"] {
+    -moz-image-region: rect(16px 16px 32px 0) !important;
+  }
+  menuitem[command="cmd_userscript_execute_sooner"] {
+    -moz-image-region: rect(16px 48px 32px 32px) !important;
+  }
+  menuitem[command="cmd_userscript_execute_later"] {
+    -moz-image-region: rect(16px 64px 32px 48px) !important;
+  }
+  menuitem[command="cmd_userscript_execute_last"] {
+    -moz-image-region: rect(16px 32px 32px 16px) !important;
+  }
+  menuitem[command="cmd_findItemUpdates"] {
+    -moz-image-region: rect(0 48px 16px 32px) !important;
+  }
+  menuitem[label="Open Folder"],
+  menuitem[command="cmd_userscript_show"] {
+    -moz-image-region: rect(0 128px 16px 112px) !important;
+  }
+  menuitem[label="Cut"] {
+    -moz-image-region: rect(32px 16px 48px 0) !important;
+  }
+  menuitem[label="Copy"] {
+    -moz-image-region: rect(32px 32px 48px 16px) !important;
+  }
+  menuitem[label="Paste"] {
+    -moz-image-region: rect(32px 48px 48px 32px) !important;
+  }
+  menuitem[label="Delete"] {
+    -moz-image-region: rect(32px 64px 48px 48px) !important;
+  }
+  menuitem[label="Undo"] {
+    -moz-image-region: rect(32px 80px 48px 64px) !important;
+  }
+  menuitem[label="Select All"] {
+    -moz-image-region: rect(32px 96px 48px 80px) !important;
+  }
+  #rf-show-options-dialog .button-icon {
+    -moz-image-region: rect(32px 176px 48px 160px) !important;
+  }
+}
