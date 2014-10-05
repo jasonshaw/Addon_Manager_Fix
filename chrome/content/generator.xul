@@ -1,0 +1,256 @@
+<?xml version='1.0'?>
+<?xml-stylesheet href='chrome://global/skin/'?>
+<?xml-stylesheet href='chrome://addonmanagerfix/skin/fix.css' type='text/css'?>
+<!DOCTYPE dialog [<!ENTITY % fixDTD SYSTEM 'chrome://addonmanagerfix/locale/fix.dtd'>%fixDTD;]>
+<dialog xmlns='http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul' xmlns:html='http://www.w3.org/1999/xhtml' 
+  id='addon-generator' windowtype='addon:generator' title='Addon List Generator' onload='onLoad(this)' buttons='accept,cancel,extra1' 
+  ondialogaccept='copyExtensionList()' ondialogextra1='fileExtensionList()' persist='width height screenX screenY'>
+  <script type='application/x-javascript' src='chrome://addonmanagerfix/content/fix.js'/>
+  <preferences>
+    <preference id='pref0' name='extensions.addonmanagerfix.editView' type='bool' instantApply='false'/>
+    <preference id='pref1' name='extensions.addonmanagerfix.custombuttonsView' type='bool' instantApply='false'/>
+    <preference id='pref2' name='extensions.addonmanagerfix.extensionsView' type='bool' instantApply='false'/>
+    <preference id='pref3' name='extensions.addonmanagerfix.scriptView' type='bool' instantApply='false'/>
+    <preference id='pref4' name='extensions.addonmanagerfix.pluginsView' type='bool' instantApply='false'/>
+    <preference id='pref5' name='extensions.addonmanagerfix.themesView' type='bool' instantApply='false'/>
+    <preference id='pref6' name='extensions.addonmanagerfix.scriptsView' type='bool' instantApply='false'/>
+    <preference id='pref7' name='extensions.addonmanagerfix.stylesView' type='bool' instantApply='false'/>
+  </preferences>
+  <textbox id="listBox" flex="1" multiline="true"/>
+  <groupbox id="gb1" style="padding:0">
+    <hbox>
+      <checkbox id="sonco-editView" class="" label="Edit List" preference='pref0' onclick="onCheckbox(this)"/>
+      <spacer flex="1"/>
+      <hbox align="center">
+        <checkbox id="sonco-custombuttonsView" class="checkBox" label="Custombuttons" preference='pref1' onclick="onCheckbox(this)"/>
+        <checkbox id="sonco-extensionsView" class="checkBox" label="Extensions" preference='pref2' onclick="onCheckbox(this)"/>
+        <checkbox id="sonco-scriptView" class="checkBox" label="GM Scripts" preference='pref3' onclick="onCheckbox(this)"/>
+        <checkbox id="sonco-pluginsView" class="checkBox" label="Plugins" preference='pref4' onclick="onCheckbox(this)"/>
+        <checkbox id="sonco-themesView" class="checkBox" label="Themes" preference='pref5' onclick="onCheckbox(this)"/>
+        <checkbox id="sonco-scriptsView" class="checkBox" label="Scriptish" preference='pref6' onclick="onCheckbox(this)"/>
+        <checkbox id="sonco-stylesView" class="checkBox" label="UserStyles" preference='pref7' onclick="onCheckbox(this)"/>
+      </hbox>
+    </hbox>
+  </groupbox>
+  <hbox id="bntCont">
+    <spacer flex="1"/>
+    <button dlgtype="accept" id="myAccept" label="Copy to Clipboard"/>
+    <button dlgtype="extra1" id="myExtra1" label="Create Text File"/>
+    <button dlgtype="cancel" id="myCancel" label="Close"/>
+  </hbox>
+  <script type="application/x-javascript">
+    <![CDATA[
+      function aDate() {
+        var date = new Date(), tds = date.toDateString();
+        if(tds.indexOf("May") != -1) var dStr = tds.substring(4, 7) + " " + tds.substring(8, 10) + ", " + tds.substring(11, 15);
+        else var dStr = tds.substring(4, 7) + ". " + tds.substring(8, 10) + ", " + tds.substring(11, 15);
+        var tts = date.toTimeString(), tStr = tts.substring(0, 8);
+        return dStr + " " + tStr;
+      }
+      function getProfileName() {
+        return Services.dirsvc.get("ProfD", Ci.nsIFile).path.split("\\Profiles\\")[1];
+      }
+      function ucFirst(str) {
+        var firstLetter = str.slice(0, 1);
+        return firstLetter.toUpperCase() + str.substring(1);
+      }
+      function capAll(str) { 
+        var words = str.toLowerCase().split(' '); 
+        for (var i = 0; i < words.length; i++) { 
+          var wd = words[i], first = wd.substr(0, 1), rest = wd.substr(1, wd.length - 1);
+          words[i] = first.toUpperCase() + rest;
+        } 
+        return words.join(' '); 
+      }
+      function  mostRecentWindow(windowType) {
+        return Cc["@mozilla.org/appshell/window-mediator;1"].getService(Ci.nsIWindowMediator).getMostRecentWindow(windowType);
+      }
+      function onLoad(aWin) {
+        try {
+          showExtensionList(aWin, Application.extensions.all);
+        } catch(e) {AddonManager.getAllAddons(function(extensions) {showExtensionList(aWin, extensions);})}
+        editView();
+      }
+      function onCheckbox(e) {
+        var prefs = Services.prefs.getBranch('extensions.addonmanagerfix.');
+        var str = e.id.split('sonco-')[1];
+        var enable = prefs.getBoolPref(str) != false ? false : true;
+        prefs.setBoolPref(str, enable);
+        document.getElementById(e.id).checked = !enable;
+        if (e.id == 'sonco-editView') {
+          editView();
+          return;
+        }
+        onLoad(this);
+      }
+      function editView() {
+        var bool = Services.prefs.getBoolPref('extensions.addonmanagerfix.editView');
+        if(bool) {
+          document.getElementById('listBox').style.MozUserInput = '';
+          document.getElementById('listBox').style.MozUserSelect = '';
+          document.getElementById('listBox').readOnly = false;
+        } else {
+          document.getElementById('listBox').style.MozUserInput = 'none';
+          document.getElementById('listBox').style.MozUserSelect = 'none';
+          document.getElementById('listBox').readOnly = true;
+      } }
+      function copyExtensionList() {
+        var text = document.getElementById('listBox').value.replace(/\u2003|\u2007/g, ' ');
+        var clip = Cc['@mozilla.org/widget/clipboardhelper;1'].getService(Ci.nsIClipboardHelper);  
+        clip.copyString(text);
+        Cc['@mozilla.org/alerts-service;1'].getService(Ci.nsIAlertsService).showAlertNotification('chrome://addonmanagerfix/skin/alt.png', 'Copied to Clipboard', document.title);
+      }
+      function fileExtensionList() {
+        var tb = document.getElementById('listBox').value.replace(/\u2007|\u2003/g, ' ');
+        var fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
+        var stream = Cc['@mozilla.org/network/file-output-stream;1'].createInstance(Ci.nsIFileOutputStream);
+        fp.appendFilters(fp.filterText); 
+        fp.defaultExtension = '.txt'; 
+        fp.init(window, 'Save As Text', 1);
+        fp.defaultString = 'Addon List Generator ' + aDate();
+        if(fp.show() != fp.returnCancel) {
+          if(fp.file.exists()) fp.file.remove(true);
+          fp.file.create(Ci.nsIFile.NORMAL_FILE_TYPE, 420); 
+          stream.init(fp.file, 0x02, 0x200, false); 
+          stream.write(tb, tb.length); 
+          stream.close();
+        } else {
+          close();
+          return;
+        }
+        close();
+      }
+      function showExtensionList(aWin, aExt) {
+        var exts = aExt, cnt = exts.length;
+        var cntExt = 0, cntPlug = 0, cntTheme = 0, cntGm = 0, cntScript = 0, cntStyle = 0, cntCB = 0;
+        var ckExt = 0, ckPlug = 0, ckTheme = 0, ckGm = 0, ckScript = 0, ckStyle = 0, ckCB = 0;
+        for(var i = 0; i < cnt; i++) {
+          if(exts[i].type == "custombuttons") cntCB++;
+          if(exts[i].type == "extension") cntExt++;
+          if(exts[i].type == "greasemonkey-user-script") cntGm++;
+          if(exts[i].type == "plugin") cntPlug++;
+          if(exts[i].type == "theme") cntTheme++;
+          if(exts[i].type == "userscript") cntScript++;
+          if(exts[i].type == "userstyle") cntStyle++;
+        }
+        if(cntCB == 0) aWin.document.getElementById("sonco-custombuttonsView").style.display = "none";
+        if(cntExt == 0) aWin.document.getElementById("sonco-extensionsView").style.display = "none";
+        if(cntTheme == 0) aWin.document.getElementById("sonco-themesView").style.display = "none";
+        if(cntPlug == 0) aWin.document.getElementById("sonco-pluginsView").style.display = "none";
+        if(cntGm == 0) aWin.document.getElementById("sonco-scriptView").style.display = "none";
+        if(cntScript == 0) aWin.document.getElementById("sonco-scriptsView").style.display = "none";
+        if(cntStyle == 0) aWin.document.getElementById("sonco-stylesView").style.display = "none";
+        if(aWin.document.getElementById("sonco-custombuttonsView").checked) ckCB = cntCB; else ckCB = 0;
+        if(aWin.document.getElementById("sonco-extensionsView").checked) ckExt = cntExt; else ckExt = 0;
+        if(aWin.document.getElementById("sonco-scriptView").checked) ckGm = cntGm; else ckGm = 0;
+        if(aWin.document.getElementById("sonco-pluginsView").checked) ckPlug = cntPlug; else ckPlug = 0;
+        if(aWin.document.getElementById("sonco-themesView").checked) ckTheme = cntTheme; else ckTheme = 0;
+        if(aWin.document.getElementById("sonco-scriptsView").checked) ckScript = cntScript; else ckScript = 0;
+        if(aWin.document.getElementById("sonco-stylesView").checked) ckStyle = cntStyle; else ckStyle = 0;
+        var totalCnt = ckExt + ckPlug + ckCB + ckTheme + ckGm + ckScript + ckStyle;
+        var str = "Profile: " + getProfileName() + "  \u2007 Total Addons: " + totalCnt + "  \u2007 Generated: " + aDate();
+        var extList = navigator.userAgent + "\n" + str + "\n";
+        if(cnt < 1) aWin.close();
+        exts.sort(function(a, b) {
+          a = a.name.toLowerCase();
+          b = b.name.toLowerCase();
+          if (a < b) return -1;
+          if (a > b) return 1;
+          return 0;
+        })
+        exts.sort(function(a, b) {
+          a = a.type.toLowerCase();
+          b = b.type.toLowerCase();
+          if (a < b) return -1;
+          if (a > b) return 1;
+          return 0;
+        })
+        var typeExt = 0, typePlug = 0, typeCB = 0, typeTheme = 0, typeGm = 0, typeScript = 0, typeStyle = 0;
+        for(var i = 0; i < cnt; i++) {
+          if(exts[i].type == "custombuttons") typeCB++;
+          if(exts[i].type == "extension") typeExt++;
+          if(exts[i].type == "greasemonkey-user-script") typeGm++;
+          if(exts[i].type == "plugin") typePlug++;
+          if(exts[i].type == "theme") typeTheme++;
+          if(exts[i].type == "userscript") typeScript++;
+          if(exts[i].type == "userstyle") typeStyle++;
+          var nameOf = "", verOf = "", idOf = "", typeOf = "", dateOf = "";
+          if(exts[i].name && exts[i].version) {
+            nameOf = '"' + exts[i].name + "  ";
+            verOf = exts[i].version + '"';
+          }
+          if(exts[i].name && !exts[i].version) nameOf = '"' + exts[i].name + '"';
+          if(exts[i].id) idOf = "  " + exts[i].id;
+          if(exts[i].styleTypes) typeOf = "  (" + ucFirst(exts[i].styleTypes) + " style)";
+          if(exts[i].updateDate) {      
+            var xDate = exts[i].updateDate.toString();
+            if(xDate.indexOf("May") != -1) {
+              var xA = xDate.substring(4, 10), xB = xDate.substring(11, 15);
+              dateOf = "  (" + xA + ", " + xB + ")";
+            } else {
+              var xA = xDate.substring(4, 7), xB = xDate.substring(8, 10), xC = xDate.substring(11, 15);
+              dateOf = "  (" + xA + ". " + xB + ", " + xC + ")";
+          } }
+          var xx = exts[i].userDisabled;
+          if(xx == true) var ud = " :: DISABLED";
+          else var ud = " :: ACTIVE";
+          var listStr = ". " + nameOf + verOf + idOf + typeOf + dateOf + ud + "\n";
+          var cbStr = ". " + nameOf + verOf + ' ' + idOf.split('/Firefox/')[1] + typeOf + dateOf + "\n";
+          if(aWin.document.getElementById("sonco-custombuttonsView").checked) {
+            if(typeCB != typeCB-1 && exts[i].type == "custombuttons") {
+              if(typeCB == 1) extList += "\nCUSTOMBUTTONS: " + cntCB + "\n" + "\u2007\u2007" + typeCB + cbStr;
+              if(typeCB > 1 && typeCB < 10) extList += "\u2007\u2007" + typeCB + cbStr;
+              if(typeCB >= 10 && typeCB < 100) extList += "\u2007" + typeCB + cbStr;
+              if(typeCB >= 100 && typeCB < 1000) extList += typeCB + cbStr;
+          } }
+          if(aWin.document.getElementById("sonco-extensionsView").checked) {
+            if(typeExt != typeExt-1 && exts[i].type == "extension") {
+              if(typeExt == 1) extList += "\nEXTENSIONS: " + cntExt + "\n" + "\u2007\u2007" + typeExt + listStr;
+              if(typeExt > 1 && typeExt < 10) extList += "\u2007\u2007" + typeExt + listStr;
+              if(typeExt >= 10 && typeExt < 100) extList += "\u2007" + typeExt + listStr;
+              if(typeExt >= 100 && typeExt < 1000) extList += typeExt + listStr;
+          } }
+          if(aWin.document.getElementById("sonco-scriptView").checked) {
+            if(typeGm != typeGm-1 && exts[i].type == "greasemonkey-user-script") {
+              if(typeGm == 1) extList += "\nGREASEMONKEY SCRIPTS: " + cntGm + "\n" + "\u2007\u2007" + typeGm + listStr;
+              if(typeGm > 1 && typeGm < 10) extList += "\u2007\u2007" + typeGm + listStr;
+              if(typeGm >= 10 && typeGm < 100) extList += "\u2007" + typeGm + listStr;
+              if(typeGm >= 100 && typeGm < 1000) extList += typeGm + listStr;
+          } }
+          if(aWin.document.getElementById("sonco-pluginsView").checked) {
+            if(typePlug != typePlug-1 && exts[i].type == "plugin") {
+              if(typePlug == 1) extList += "\nPLUGINS: " + cntPlug + "\n" + "\u2007\u2007" + typePlug + listStr;
+              if(typePlug > 1 && typePlug < 10) extList += "\u2007\u2007" + typePlug + listStr;
+              if(typePlug >= 10 && typePlug < 100) extList += "\u2007" + typePlug + listStr;
+              if(typePlug >= 100 && typePlug < 1000) extList += typePlug + listStr;
+          } }
+          if(aWin.document.getElementById("sonco-scriptsView").checked) {
+            if(typeScript != typeScript-1 && exts[i].type == "userscript") {
+              if(typeScript == 1) extList += "\nSCRIPTISH SCRIPTS: " + cntScript + "\n" + "\u2007\u2007" + typeScript + listStr;
+              if(typeScript > 1 && typeScript < 10) extList += "\u2007\u2007" + typeScript + listStr;
+              if(typeScript >= 10 && typeScript < 100) extList += "\u2007" + typeScript + listStr;
+              if(typeScript >= 100 && typeScript < 1000) extList += typeScript + listStr;
+          } }
+          if(aWin.document.getElementById("sonco-themesView").checked) {
+            if(typeTheme != typeTheme-1 && exts[i].type == "theme") {
+              if(typeTheme == 1) extList += "\nTHEMES: " + cntTheme + "\n" + "\u2007\u2007" + typeTheme + listStr;
+              if(typeTheme > 1 && typeTheme < 10) extList += "\u2007\u2007" + typeTheme + listStr;
+              if(typeTheme >= 10 && typeTheme < 100) extList += "\u2007" + typeTheme + listStr;
+              if(typeTheme >= 100 && typeTheme < 1000) extList += typeTheme + listStr;
+          } }
+          if(aWin.document.getElementById("sonco-stylesView").checked) {
+            if(typeStyle != typeStyle-1 && exts[i].type == "userstyle") {
+              if(typeStyle == 1) extList += "\nUSER STYLES: " + cntStyle + "\n" + "\u2007\u2007" + typeStyle + listStr;
+              if(typeStyle > 1 && typeStyle < 10) extList += "\u2007\u2007" + typeStyle + listStr;
+              if(typeStyle >= 10 && typeStyle < 100) extList += "\u2007" + typeStyle + listStr;
+              if(typeStyle >= 100 && typeStyle < 1000) extList += typeStyle + listStr;
+        } } }
+        document.title = "Addon List Generator  \u2007Total Addons: "+ totalCnt;
+        var textbox = document.getElementById("listBox");
+        textbox.value = extList;
+        textbox.selectionStart = 0;
+        textbox.selectionEnd = 0;
+      }
+    ]]>
+  </script>
+</dialog>
