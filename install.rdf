@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<r:RDF xmlns="http://www.mozilla.org/2004/em-rdf#" xmlns:r="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <r:Description about="urn:mozilla:install-manifest">
+	<id>addonmanagerfix@sonco.com</id>
+	<version>32.0.3</version>
+	<name>Addon Manager Fix</name>
+	<description>Put sorters back into header with various tweaks.</description>
+	<creator>Sonny Razzano</creator>
+	<bootstrap>true</bootstrap>
+	<optionsType>2</optionsType>
+	<type>2</type>
+	<unpack>true</unpack>
+	<!-- Firefox -->
+	<targetApplication>
+	   <r:Description>
+		<id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
+		<minVersion>32.0</minVersion>
+		<maxVersion>99.*</maxVersion>
+	   </r:Description>
+	</targetApplication>
+   </r:Description>      
+</r:RDF>
