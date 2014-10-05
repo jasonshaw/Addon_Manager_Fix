@@ -1,0 +1,475 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  /******************/
+  /* HEADER SECTION */
+  /******************/
+
+  button#new-userstyle {
+    border-radius: 4px !important;
+    margin: 0 !important;
+  }
+  .view-header.global-info-container {
+    padding: 0 4px !important;
+  }
+  #sonco-nav {
+    margin: 0 8px 0 0 !important;
+  }
+  #sonco-item-cnt {
+    margin: 0 12px 0 8px !important;
+  }
+  #sonco-item-cnt .itemCount {
+  }
+  #sonco-item-cnt #item-enabled {
+    color: #070 !important;
+    margin: 0 12px 0 0 !important;
+  }
+  #sonco-item-cnt #item-disabled {
+    color: #900 !important;
+    margin: 0 !important;
+  }
+  #sonco-sort {
+    margin: 0 0 0 -2px !important;
+  }
+  #sonco-sort .sorter {
+    margin: 0 4px 0 0 !important;
+  }
+  #sonco-sort #button-Id {
+  }
+  #sonco-sort #button-Name {
+  }
+  #sonco-sort #button-Update {
+  }
+  #install-from-url {
+    margin: 0 4px !important;
+  }
+  #list-sorters {
+    display: none !important;
+  }
+  #list-sorters,
+  #do-restart,
+  #updates-container,
+  #header-utils-btn,
+  #header-search {
+    margin: 0 2px !important;
+  }
+  .sorter,
+  #list-view .addon-control,
+  #updates-container button .button-text {
+    -moz-appearance: none !important;
+    background: linear-gradient(#DDD, #AAA) !important;
+    border: 1px solid #AAA !important;
+    border-radius: 4px !important;
+    margin: 0 4px 0 0 !important;
+    padding: 0 8px !important;
+  }
+  #header-search {
+    background: linear-gradient(#FFF, #CCC) rgba(0, 0, 0, 0) !important;
+    border: 1px solid #999 !important;
+    border-radius: 10000px 0 0 10000px !important;
+    font-size: 110% !important;
+    height: 27px !important;
+    padding: 2px 2px 1px 8px !important;
+    text-align: center !important;
+    text-shadow: 2px 2px 2px #999 !important;
+    transition: all 0.5s !important;
+  }
+  #header-search .textbox-search-icon {
+    margin: 1px 2px 0 0 !important;
+  }
+  #header-utils-btn {
+    background: linear-gradient(#FFF, #CCC) rgba(0, 0, 0, 0) !important;
+    border: 1px solid #999 !important;
+    border-radius: 0 10000px 10000px 0 !important;
+    min-width: 40px !important;
+    padding: 0px 4px !important;
+  }
+  #header-utils-btn .toolbarbutton-icon {
+    margin: 0 2px 0 0px !important;
+  }
+  #header-utils-btn dropmarker {
+    margin: 0 !important;
+    padding-right: 4px !important;
+  }
+  #list-view .addon-control.global-info-plugincheck,
+  #list-view label.addon-control,
+  #addon-list .addon-control {
+    padding: 2px 8px !important;
+  }
+  .sorter,
+  #updates-container {
+    color: #000 !important;
+  }
+  .sorter:hover,
+  .sorter[checkState="1"], 
+  .sorter[checkState="2"], 
+  #header-utils-btn:hover,
+  #list-view .addon-control:hover,
+  #header-search[focused],
+  #updates-container label,
+  #updates-container button:hover .button-text {
+    background: linear-gradient(#AAA, #DDD) !important;
+  }
+  .sorter[checkState="1"], 
+  .sorter[checkState="2"], 
+  #header-utils-btn dropmarker,
+  #header .button-menu-dropmarker {
+    -moz-image-region: rect(0 11px 7px 0) !important;
+  }
+  .sorter[checkState="2"] {
+    -moz-image-region: rect(0 22px 7px 11px) !important;
+  }
+  #do-restart {
+    background: linear-gradient(#FFF, #CCC) rgba(0, 0, 0, 0) !important;
+    border: 1px solid #999 !important;
+  }
+  #do-restart:hover {
+    background: linear-gradient(#AAA, #EEE) !important;
+  }
+  #do-restart .toolbarbutton-icon {
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+    -moz-image-region: rect(16px 144px 32px 128px) !important;
+  }
+  #updates-container label {
+    border: 1px solid #AAA !important;
+    text-shadow: 2px 2px 2px #999 !important;
+  }
+  #updates-container button .button-text {
+    text-shadow: 1px 1px 2px #999 !important;
+  }
+  #updates-manualUpdatesFound-btn .button-text {
+    color: #900 !important;
+  }
+  #updates-installed,
+  #updates-downloaded {
+    color: #060 !important;
+  }		
+  #updates-restart-btn .button-text {
+    color: #006 !important;
+  }
+  #header-search:hover,
+  #header-search:hover .textbox-input,
+  #header-search .textbox-input:active, 
+  #header-search .textbox-input:focus {
+    color: #000 !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 2px #999 !important;
+  }
+
+  /*************************/
+  /* ADDON MANAGER SECTION */
+  /*************************/
+
+  .addon .disabled-postfix {
+    color: #900 !important;
+  }
+  button.details {
+    margin: 0 0 0px 0 !important;
+  }
+  button.details .button-icon {
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+    -moz-image-region: rect(16px 224px 32px 208px) !important;
+  }    
+  button.details:hover .button-icon {
+    -moz-image-region: rect(16px 240px 32px 224px) !important;
+  }   
+  button.details .button-text {
+    display: none !important;
+  }
+  #addons-page .addon {
+    padding: 0 !important;
+  }
+  .addon .addon-control {
+    background: linear-gradient(rgba(225, 226, 229, .3), rgba(231, 232, 233, .15) 51%, rgba(236, 237, 238, .17) 49%, rgba(241, 242, 243, .65)) !important;
+    border: 2px solid !important;
+    -moz-border-top-colors: transparent #999 !important; 
+    -moz-border-right-colors: transparent #999 !important; 
+    -moz-border-bottom-colors: transparent #999 !important; 
+    -moz-border-left-colors: transparent #999 !important;
+    box-shadow: -1px -1px 1px #222 inset !important;
+    max-height: 24px !important;
+    min-height: 24px !important;
+    max-width: 58px !important;
+    min-width: 58px !important;
+    padding: 0 !important;
+    text-shadow: 1px 1px 2px #999 !important;
+  }
+  #addons-page .addon button.addon-control:hover {
+    background: #FFF !important;
+  }
+  .addon .addon-control .button-text {
+    margin-top: -2px !important;
+  }
+  .addon .button-text[value="Remove"] {
+    margin-left: -7px !important;
+  }
+  .addon .button-text[value="Options"] {
+    margin-left: -6px !important;
+  }
+  .addon .button-text[value="Disable"] {
+    margin-left: -4px !important;
+  }
+  .addon .button-text[value="Enable"] {
+    margin-left: -3px !important;
+  }
+  menuitem  {
+    padding: 0 0 0 3px !important;
+  }
+  menuitem .menu-iconic-text {
+    margin-left: 10px !important;
+  }
+  #utils-menu checkbox {
+    color: #000 !important;
+    list-style-image: none !important;
+  }
+  #utils-menu checkbox:hover {
+    background: #333 !important;
+    color: #FFF !important;
+  }
+  #detail-view setting.primary > vbox > hbox > label {
+    margin-top: 0 !important;
+  }
+  #userstyle-footer {
+    display: none !important;
+  }
+  #view-port .view-header {
+    padding: 2px !important;
+  }
+  #categories > scrollbox > box {
+    display: inline !important;
+  }
+  #categories {
+    height: 50px !important;
+    margin: 0 !important;
+  }
+  #categories .category {
+    border-radius: 5px !important;
+    border: 2px solid transparent !important;
+    height: 46px !important;
+    margin: 0 4px 0 0 !important;
+    padding: 0 !important;
+    text-shadow: 2px 2px 2px #999 !important;
+    transition: all .75s !important;
+    width: 46px !important;
+  }
+  #categories .category[disabled] { 
+    display: none !important;
+  }
+  #categories .category[selected] {
+    background: linear-gradient(rgba(225, 226, 229, .3), rgba(231, 232, 233, .15) 51%, rgba(236, 237, 238, .17) 49%, rgba(241, 242, 243, .65)) !important;
+    border: 2px solid !important;
+    -moz-border-top-colors: transparent #999 !important; 
+    -moz-border-right-colors: transparent #999 !important; 
+    -moz-border-bottom-colors: transparent #999 !important; 
+    -moz-border-left-colors: transparent #999 !important;
+    box-shadow: 2px 2px 2px #222 inset, 2px 2px 2px #333 !important;
+    font-size: 130% !important;
+    font-style: italic !important;
+    width: auto !important;
+  }
+  #categories .category:not([selected]):hover {
+    -moz-border-top-colors: #333 #999 !important; 
+    -moz-border-right-colors: #333 #999 !important; 
+    -moz-border-bottom-colors: #333 #999 !important; 
+    -moz-border-left-colors: #333 #999 !important;
+    box-shadow: -2px -2px 2px #222 inset, 2px 2px 2px #333 !important;
+  }
+  #category-search[selected] {
+    margin-left: 2px !important;
+  }
+  .category-icon {
+    margin: 0 4px !important;
+  }
+  .category-name {
+    margin: 0 4px 0 2px !important;
+  }
+  .category:not([selected="true"]) .category-name,
+  .category:not([selected="true"]) .addon-count {
+    visibility: collapse !important;
+  }
+  .category[selected="true"] .category-name,
+  .category:not([selected="true"]) .addon-count {
+    visibility: visible !important;
+  }
+  .addon-count {
+    font-size: 150% !important;
+    margin: -1px 0 0 4px !important;
+  }
+  .category-badge {
+    background: linear-gradient(#68D436, #417B01) !important;
+    margin: 2px 4px 0 4px !important;
+  }
+  .category-badge[value="0"] {
+    margin-left: 0 !important;
+    width: 0 !important;
+  }
+  #addons-page .date-updated {
+    display: -moz-box !important;
+    margin-top: -1px !important;
+  }
+  #settings-popup {
+    -moz-appearance: none !important;
+  }
+  #sonco-organize {
+    margin: 2px 0 0 3px !important;
+    padding: 0 !important;
+  }
+  #sonco-organize label {
+    padding: 0 0 0 6px !important;
+  }
+  #updates-container label, #updates-container button .button-text {
+    padding: 4px 8px !important;
+  }
+  #updates-container label {
+    margin: 0 6px 0 0 !important;
+  }
+  .update-info-container, .install-status {
+    max-height: 24px !important;
+    min-height: 24px !important;
+    position: absolute !important;
+    margin: -2px 0 4px 0 !important;
+  }
+  .update-available-notice {
+    position: relative !important; 
+    top: 0px !important;
+  }
+  .addon .status-container button.addon-control.update {
+    max-width: 90px !important;
+    min-width: 90px !important;
+  }
+  #addon-list .control-container {
+    margin-bottom: 3px !important;
+  }
+  #sonco-generator {
+    margin: 2px 0 0 3px !important;
+    padding: 0 !important;
+  }
+  #sonco-generator label {
+    padding: 0 0 0 6px !important;
+  }
+}
+
+@-moz-document url(chrome://addonmanagerfix/content/generator.xul) {
+  #addon-generator .checkbox-label-box {
+    border: 1px dotted transparent !important;
+    outline: none !important;
+  }
+  #addon-generator {
+    background: #EEE !important;
+  }
+  #addon-generator #gb1 {
+    -moz-appearance: none !important;
+    background: none !important;
+    border: none !important;
+  }
+  #addon-generator button {
+    -moz-appearance: none !important;
+    background: linear-gradient(#EEE, #AAA) !important;
+    border-radius: 13px !important;
+    border: 2px solid !important;
+    -moz-border-top-colors: #AAA #EEE !important;
+    -moz-border-right-colors: #AAA #EEE !important;
+    -moz-border-bottom-colors: #AAA #EEE !important;
+    -moz-border-left-colors: #AAA #FFF !important;
+    min-width: 26px !important;
+    text-shadow: 2px 2px 2px #999 !important;
+  }
+  #addon-generator button:hover {
+    background: #FFF !important;
+  }
+  #addon-generator .checkBox {
+    color: #888 !important;
+  }
+  #addon-generator .checkBox[checked] {
+    color: #000 !important;
+    text-shadow: 2px 2px 2px #999 !important;
+  }
+  #addon-generator #listBox {
+    -moz-appearance: none !important;
+    background: #FFF !important;
+    border: 1px solid #999 !important;
+    border-radius: 8px 8px 0 0 !important;
+    box-shadow: 3px 3px 3px #444 !important;
+    padding: 4px 0 0 4px !important;
+  }
+  #addon-generator #sonco-editView {
+    -moz-appearance: none !important;
+    background: #FFF !important;
+    border: 1px solid #999 !important;
+    border-radius: 0 0 8px 8px !important;
+    border-top: none !important;
+    box-shadow: 3px 3px 3px #444 !important;
+    margin: -6px 0 0 1px !important;
+    padding: 6px 6px 0 8px !important;
+    text-shadow: 2px 2px 2px #999 !important;
+  }
+  #addon-generator #bntCont {
+  }
+  #addon-generator #myAccept {
+    padding-right: 18px !important;
+  }
+  #addon-generator #myExtra1 {
+    margin-left: -26px !important;
+  }
+}
+
+  #search-row {
+    border: 2px solid;
+    -moz-border-top-colors: transparent transparent !important;
+    -moz-border-right-colors: transparent transparent !important;
+    -moz-border-left-colors: transparent transparent !important;
+    -moz-border-bottom-colors: #BBB #666 !important;
+    height: 30px !important;
+    max-height: 30px !important;
+    padding: 4px 0 3px 0 !important;
+  }
+  #addons-page #search-filter {
+    border: none !important;
+    font-size: 110% !important;
+    margin: 0 2px 0 0 !important;
+    padding: 0 0 4px 0 !important;
+  }
+  .search-filter-radio {
+    margin: 0 !important;
+    padding: 1px 4px 0px 6px !important;
+  }
+  .search-filter-radio[selected="true"] {
+    background: none !important;
+    color: #000 !important;
+  }
+  #search-filter-label {
+    color: #000 !important;
+  }
+  .filterBox {
+    border-radius: 10000px !important;
+    border: none !important;
+    margin: 0 0 0 4px !important;
+  }
+  .filterBox[selected="true"] {
+    background: linear-gradient(#CCC, #FFF) !important;
+    box-shadow: inset 2px 2px 2px #000 !important;
+    text-shadow: 2px 2px 2px #999 !important;
+  }
+  .filterBox:not([selected="true"]) {
+    background-image: linear-gradient(#FFF, #CCC) !important;
+    color: #666 !important;
+  }
+  .filterBox:not([selected="true"]):hover {
+    background-image: linear-gradient(#CCC, #FFF) !important;
+  }
+  #local-count,
+  #remote-count {
+    color: #666 !important;
+    margin: 2px 0 0 0 !important;
+    padding: 0 10px 0 0 !important;
+  }
+  #localFilterCount[selected="true"] #local-count,
+  #remoteFilterCount[selected="true"] #remote-count {
+    color: #000 !important;
+  }
+  #addons-page #search-list > hbox {
+    background: #FFF !important;
+    max-height: 32px !important;
+  }
+  #search-allresults-link {
+    margin: 4px 0 !important;
+  }
+
