@@ -1,4 +1,4 @@
-Addon_Manager_Fix
+Addon Manager Fix
 =================
 
 Restores sorters and other functions to the Addon Manager
