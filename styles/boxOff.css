@@ -1,0 +1,7 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  setting#bool-searchbox, 
+  #sonco-searchbox {
+    opacity: .2 !important;
+    pointer-events: none !important;
+  }
+}
