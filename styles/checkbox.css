@@ -1,0 +1,11 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  #utils-menu checkbox .checkbox-check {
+    -moz-appearance: none !important;
+    background: transparent url(chrome://addonmanagerfix/skin/checkOn.png) !important;
+    border: none !important;
+    list-style-image: none !important;
+  }
+  #utils-menu checkbox:not([checked="true"]) .checkbox-check {
+    background: url(chrome://addonmanagerfix/skin/checkOff.png) !important;
+  }
+}
