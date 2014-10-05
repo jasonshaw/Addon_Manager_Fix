@@ -1,0 +1,5 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  #header-search {
+    display: -moz-box !important;
+  }
+}
