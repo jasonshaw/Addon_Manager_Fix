@@ -1,0 +1,22 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  #header-search {
+    color: transparent !important;
+    padding: 1px 2px 2px 4px !important;
+    text-align: center !important;
+    text-shadow: none !important;
+    width: 26px !important;
+  }
+  #header-search[focused],
+  #header-search:hover, 
+  #header-search:hover .textbox-input {
+    width: 198px !important;
+  }
+  #header-search .textbox-input {
+    color: transparent !important;
+  }
+  #header-search .textbox-input:focus {
+    min-width: 170px !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+  }
+}
