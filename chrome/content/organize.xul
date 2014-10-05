@@ -1,0 +1,92 @@
+<?xml version='1.0'?>
+<?xml-stylesheet href='chrome://global/skin/'?>
+<?xml-stylesheet href='chrome://addonmanagerfix/skin/fix.css' type='text/css'?>
+<!DOCTYPE dialog [<!ENTITY % fixDTD SYSTEM 'chrome://addonmanagerfix/locale/fix.dtd'>%fixDTD;]>
+<dialog xmlns='http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+  xmlns:html='http://www.w3.org/1999/xhtml' id='organize-categories' windowtype='organize:categories' 
+  title='&title.organize;' onload='onLoad()' buttons='accept,cancel' ondialogaccept='onAccept()' 
+  ondialogcancel='window.opener.document.location.reload()' persist='width height screenX screenY'>
+  <script type='application/x-javascript' src='chrome://addonmanagerfix/content/fix.js'/>
+  <preferences>
+    <preference id='pref_organize' name='extensions.addonmanagerfix.organize' type='string' instantApply='false'/>
+    <preference id='cat1' name='extensions.addonmanagerfix.category1' type='string' instantApply='false'/>
+    <preference id='cat2' name='extensions.addonmanagerfix.category2' type='string' instantApply='false'/>
+    <preference id='cat3' name='extensions.addonmanagerfix.category3' type='string' instantApply='false'/>
+    <preference id='cat4' name='extensions.addonmanagerfix.category4' type='string' instantApply='false'/>
+    <preference id='cat5' name='extensions.addonmanagerfix.category5' type='string' instantApply='false'/>
+    <preference id='cat6' name='extensions.addonmanagerfix.category6' type='string' instantApply='false'/>
+    <preference id='cat7' name='extensions.addonmanagerfix.category7' type='string' instantApply='false'/>
+    <preference id='cat8' name='extensions.addonmanagerfix.category8' type='string' instantApply='false'/>
+    <preference id='cat9' name='extensions.addonmanagerfix.category9' type='string' instantApply='false'/>
+    <preference id='cat10' name='extensions.addonmanagerfix.category10' type='string' instantApply='false'/>
+    <preference id='cat11' name='extensions.addonmanagerfix.category11' type='string' instantApply='false'/>
+    <preference id='cat12' name='extensions.addonmanagerfix.category12' type='string' instantApply='false'/>
+    <preference id='cat13' name='extensions.addonmanagerfix.category13' type='string' instantApply='false'/>
+    <preference id='cat14' name='extensions.addonmanagerfix.category14' type='string' instantApply='false'/>
+  </preferences>
+  <hbox>
+    <vbox flex='1'>
+      <label value='&title.headercats;'/>
+      <textbox id='category1' class='cat-name' preference='cat1' oninput='onInput()'/>
+      <textbox id='category2' class='cat-name' preference='cat2' oninput='onInput()'/>
+      <textbox id='category3' class='cat-name' preference='cat3' oninput='onInput()'/>
+      <textbox id='category4' class='cat-name' preference='cat4' oninput='onInput()'/>
+      <textbox id='category5' class='cat-name' preference='cat5' oninput='onInput()'/>
+      <textbox id='category6' class='cat-name' preference='cat6' oninput='onInput()'/>
+      <textbox id='category7' class='cat-name' preference='cat7' oninput='onInput()'/>
+      <textbox id='category8' class='cat-name' preference='cat8' oninput='onInput()'/>
+      <textbox id='category9' class='cat-name' preference='cat9' oninput='onInput()'/>
+      <textbox id='category10' class='cat-name' preference='cat10' oninput='onInput()'/>
+      <textbox id='category11' class='cat-name' preference='cat11' oninput='onInput()'/>
+      <textbox id='category12' class='cat-name' preference='cat12' oninput='onInput()'/>
+      <textbox id='category13' class='cat-name' preference='cat13' oninput='onInput()'/>
+      <textbox id='category14' class='cat-name' preference='cat14' oninput='onInput()'/>
+    </vbox>
+    <vbox>
+      <label value='&title.systemcats;'/>
+      <textbox id='category-list' multiline='true' flex='1' readonly='true'/>
+    </vbox>
+  </hbox>
+  <script type="application/x-javascript">
+    <![CDATA[
+      function onLoad() {
+        var array = [];
+        var category = window.opener.document.getElementsByClassName('category');
+        var textbox = document.getElementsByClassName('cat-name');
+        var listbox = document.getElementById('category-list');
+        for (var i = 0; i < category.length; i++) {
+          if (category[i].hidden) array.push(category[i].id + '  [Hidden]');
+          else if (category[i].disabled) array.push(category[i].id + '  [Disabled]')
+          else array.push(category[i].id);
+        }
+        array.sort();
+        array = array.toString().replace(/,/g, '\n');
+        listbox.value = array;
+        for (var i = 0; i < textbox.length; i++) 
+          textbox[i].value = textbox[i].value.replace(/\s+|,|\[.*/g, '');
+      }
+      function onInput() {
+        var array = [], aId; 
+        var textbox = document.getElementsByClassName('cat-name');
+        for (var i = 0; i < textbox.length; i++) {
+          textbox[i].value = textbox[i].value.replace(/\s+|,|\[.*/g, '');
+          array.push(textbox[i].value);
+        }
+        for (var j = 0; j < array.length; j++) {
+          if (array[j]) aId = window.opener.document.getElementById(array[j]);
+          window.opener.document.getElementById('categories').appendChild(aId);
+      } }
+      function onAccept() {
+        var prefs = Services.prefs.getBranch('extensions.addonmanagerfix.');
+        var textbox = document.getElementsByClassName('cat-name');
+        var array = [];
+        for (var i = 0; i < textbox.length; i++) {
+          prefs.setCharPref('category' + (i+1), textbox[i].value);
+          array.push(textbox[i].value);
+        }
+        array = array.toString().replace(/,+/g, ',').replace(/^,|,$/, '');
+        prefs.setCharPref('organize', array);
+      }
+    ]]>
+  </script>
+</dialog>
