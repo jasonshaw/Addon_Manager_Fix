@@ -1,0 +1,349 @@
+/* Fix for nasa night launch theme */
+textbox:not(.padded) .textbox-input-box { 
+  margin: 0 !important;
+}
+#main-window #ttTitlebox .TTPmyBtn {
+  background: none !important;
+  margin: 0 -4px 0 0 !important;
+}
+
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  /******************/
+  /* HEADER SECTION */
+  /******************/
+
+  #sonco-item-cnt {
+    -moz-box-orient: vertical !important;
+    font-size: 105% !important;
+    text-shadow: 1px 1px 2px #000 !important;
+    width: 84px !important;
+  }
+  #sonco-item-cnt .itemCount {
+    margin: 0 0 0 2px !important;
+  }
+  #item-enabled {
+    color: #B49351 !important;
+  }
+  #item-disabled {
+    color: #808080 !important;
+  }
+  .sorter,
+  #header-utils-btn,
+  #header-search,
+  #updates-container button .button-text {
+    background: linear-gradient(rgba(105, 106, 109, .3), rgba(111, 112, 113, .15) 51%, rgba(116, 117, 118, .17) 49%, rgba(121, 122, 123, .65)) !important;
+    border: 1px solid #222 !important;
+    border-radius: 3px !important;
+  }
+  .sorter,
+  #updates-container {
+    color: #FFF !important;
+    text-shadow: 1px 1px 2px #000 !important;
+  }
+  .sorter:hover,
+  .sorter[checkState="1"], 
+  .sorter[checkState="2"],
+  #header-utils-btn:hover,
+  #header-search[focused],
+  #updates-container label,
+  #updates-container button:hover .button-text {
+    background: linear-gradient(rgba(241, 242, 243, .65), rgba(236, 237, 238, .17) 49%, rgba(231, 232, 233, .15) 51%, rgba(225, 226, 229, .3)) !important;
+  }
+  .sorter[checkState="1"],
+  #header-utils-btn dropmarker,
+  #header .button-menu-dropmarker {
+    -moz-image-region: rect(7px 11px 14px 0) !important;
+  }
+  .sorter[checkState="2"] {
+    -moz-image-region: rect(7px 22px 14px 11px) !important;
+  }
+  #do-restart {
+    background: linear-gradient(rgba(125, 126, 129, .5), rgba(131, 132, 133, .15) 51%, rgba(136, 137, 138, .17) 49%, rgba(141, 142, 143, .5)) !important;
+    border: 1px solid #222 !important;
+    border-radius: 3px !important;
+    padding: 0 0 0 4px !important;
+  }
+  #do-restart:hover {
+    background: linear-gradient(rgba(241, 242, 243, .65), rgba(236, 237, 238, .17) 49%, rgba(231, 232, 233, .15) 51%, rgba(225, 226, 229, .3)) !important;
+  }
+  #do-restart .toolbarbutton-icon {
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+    /*-moz-image-region: rect(16px 144px 32px 128px) !important;*/
+    -moz-image-region: rect(16px 256px 32px 240px) !important;
+  }
+  #updates-container label {
+    border: 1px solid #222 !important;
+  }
+  #header-search:hover,
+  #header-search:hover .textbox-input,
+  #header-search .textbox-input:active, 
+  #header-search .textbox-input:focus {
+    color: #FFF !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 2px #000 !important;
+  }
+
+  /*************************/
+  /* ADDON MANAGER SECTION */
+  /*************************/
+
+  #addons-page .list {
+    margin: -2px !important;
+  }
+  #addons-page #list-view,
+  #addons-page #detail-view {
+    background: #161616 !important;
+    padding: 0 !important;
+  }
+  #categories .category {
+    background-image: url(chrome://addonmanagerfix/skin/dots.png), -moz-linear-gradient(left top -90deg, rgba(50, 50, 50, 0.2) 0%, rgba(30, 30, 30, 0) 50%, rgba(17, 17, 17, 0.3) 100%)!important;
+    background-position: right center, top left !important;
+    background-repeat: no-repeat, no-repeat !important;
+  }
+  #categories .category[selected], .category:hover {
+    background-image:url(chrome://addonmanagerfix/skin/dots2.png), -moz-linear-gradient(top left -90deg,rgba(110,110,110,0.4) 0%,rgba(50,50,50,0) 50%,rgba(37,37,37,0.4) 100%) !important;
+    background-position: right center, top left !important;
+    background-repeat: no-repeat, no-repeat !important;
+  }
+  #categories .category-icon {
+    margin-top: 1px !important;
+  }
+  #category-availableUpdates .category-badge {
+    font-size: 90% !important;
+    margin: -9px -18px 0 18px !important;
+    padding: 0 !important;
+    text-shadow: none !important;
+  }
+  .view-header .button-link {
+    border-bottom: 1px solid transparent!important;
+  }
+  .view-header .button-link:hover {
+    border-bottom: 1px solid #FFF !important;
+  }
+  .view-header,
+  #greasemonkey-sort-bar,
+  #userstyle-sorting {
+    background: linear-gradient(#222, #444) !important;
+    padding: 2px 1px 5px 1px !important;
+  }
+  button#new-userstyle {
+    border-radius: 0 !important;
+    margin: 0 0 0 1px !important;
+  }
+  button#userstyle-sorting-status, 
+  button#userstyle-sorting-name, 
+  button#userstyle-sorting-type {
+    border: 1px solid #000 !important;
+  }
+  #update-actions {
+    margin-top: 0 !important;
+  }
+  #addon-list richlistitem[selected="true"] {
+    border-color: #999 !important;
+  }
+  .name-container {
+    text-shadow: 1px 1px 2px #000 !important;
+  }
+  .name-container .name {
+    text-shadow: 2px 2px 2px #000 !important;
+  }
+  .addon:hover .name-container .name {
+    color: #FAC73C !important;
+    text-shadow: 2px 2px 2px #000 !important;
+  }
+  .description-container {
+    margin-top: 4px !important;
+  }
+  .addon .disabled-postfix {
+    color: #F00 !important;
+  }
+  button.details {
+    margin: 0 0 5px 3px !important;
+  }    
+  #addonitem-popup menuseparator.greasemonkey {
+    -moz-appearance: none !important;
+    border-bottom: none !important;
+    border-top: 2px groove #010101 !important;
+    margin-top: 6px !important;
+  }
+  menu, 
+  menuitem  {
+    padding: 0 0 0 2px !important;
+  }
+  menu .menu-iconic-text, 
+  menuitem .menu-iconic-text {
+    margin-left: 8px !important;
+  }
+  #utils-menu checkbox {
+    border: none !important;
+    color: #CCC !important;
+  }
+  #utils-menu checkbox:hover,
+  #utils-menu menu:hover {
+    background: #333 !important;
+    color: #FFF !important;
+  }
+
+  #detail-view .text-link,
+  #view-port .button-link {
+    text-shadow: 2px 2px 2px #000 !important;
+  }
+  #detail-view .text-link:hover {
+    color: #FFF !important;
+    text-decoration: underline !important;
+  }
+  #view-port .button-link:hover  {
+    color: #FFF !important;
+  }
+  #detail-view #detail-icon.icon {
+    height: auto !important;
+    width: auto !important;
+  }
+  #detail-view #detail-summary {
+    -moz-box-ordinal-group: 1 !important;
+  }
+  #detail-view #detail-controls {
+    -moz-box-ordinal-group: 2 !important;
+  }
+  #detail-view #detail-desc-container {
+    -moz-box-ordinal-group: 3 !important;
+  }
+  #detail-view #detail-grid {
+    -moz-box-ordinal-group: 4 !important;
+  }
+  #detail-view #detail-contributions {
+    -moz-box-ordinal-group: 5 !important;
+  }
+  #detail-view .button-icon,
+  #detail-view setting .radio-icon,
+  #detail-view checkbox image {
+    height: 16px !important;
+    width: 16px !important;
+  }
+  #detail-view button,
+  #detail-view checkbox,
+  #detail-view radio {
+    -moz-appearance: none !important;
+    height: 24px !important;
+  }
+  #detail-view button,
+  #detail-view radio {
+    min-width: 25px !important;
+  }
+  #detail-view .button-box,
+  #detail-view .radio-label-box {
+    direction: rtl !important;
+  }
+  #detail-view setting.primary > vbox > hbox > label {
+    margin: 3px 5px 0 0 !important;
+  }
+  #detail-view setting checkbox > hbox,
+  #detail-view radio .radio-icon {
+    display: none !important;
+  }
+  #detail-view #detail-contributions {
+    background-color: #222 !important;
+    border: 1px solid #000 !important;
+    border-radius: 6px !important;
+    color: #FFF !important;
+  }
+  #detail-view #detail-contrib-btn {
+    -moz-image-region: auto !important;
+    height: 32px !important;
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+    -moz-image-region: rect(32px 192px 48px 176px) !important;
+  }
+
+/* BUTTON */
+  #detail-view #detail-controls .button-box {
+    direction: ltr !important;
+  }
+  #detail-view .button-icon {
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+  }
+  #detail-view #detail-prefs-btn .button-icon {
+    -moz-image-region: rect(32px 176px 48px 160px) !important;
+  }
+  #detail-view #detail-findUpdates-btn .button-icon {
+    -moz-image-region: rect(0 48px 16px 32px) !important;
+  }
+  #detail-view #detail-enable-btn .button-icon {
+    -moz-image-region: rect(32px 96px 48px 80px) !important;
+  }
+  #detail-view #detail-disable-btn .button-icon {
+    -moz-image-region: rect(0 176px 16px 160px) !important;
+  }
+  #detail-view #detail-uninstall-btn .button-icon {
+    -moz-image-region: rect(32px 144px 48px 128px) !important;
+  }
+  #detail-view #detail-controls .button-icon {
+    margin: 0 4px 0 -2px !important;
+  }
+  #detail-view #detail-findUpdates-btn .button-icon {
+    margin: 0 0 0 4px !important;
+  }
+
+/* CHECKBOX */
+  #detail-view checkbox {
+    background: url(chrome://addonmanagerfix/skin/back.png) !important;
+    border: 1px solid #000 !important;
+    border-radius: 3px !important;
+    width: 24px !important;
+  }
+  #detail-view checkbox image,
+  #detail-view radio image {
+    border: none !important;
+  }
+  #detail-view checkbox[checked="true"] .checkbox-check {
+    list-style-image: url(chrome://addonmanagerfix/skin/icons.png) !important;
+    -moz-image-region: rect(32px 96px 48px 80px) !important;
+  }
+  #detail-view checkbox:not([checked="true"]) .checkbox-check {
+    -moz-image-region: rect(48px 48px 64px 32px) !important;
+  }
+  #detail-view checkbox:not([checked="true"]) {
+    background: url(chrome://addonmanagerfix/skin/back.png) !important;
+  }
+  #detail-view checkbox[checked="true"],
+  #detail-view checkbox:hover {
+    background: url(chrome://addonmanagerfix/skin/back2.png) !important;
+  }
+  #detail-view checkbox[checked="true"]:hover {
+    background: url(chrome://addonmanagerfix/skin/back3.png) !important;
+  }
+
+/* RADIO */
+  #detail-view radio {
+    -moz-appearance: none !important;
+    background: url(chrome://addonmanagerfix/skin/back.png) !important;
+    border: 1px solid #000 !important;
+    border-radius: 3px !important;
+    height: 24px !important;
+    margin: 0 15px 0 0 !important;
+    min-width: 25px !important;
+    padding: 3px 0 2px 0 !important;
+    text-shadow: 1px 1px 2px #000 !important;
+  }
+  #detail-view radio .radio-check {
+    display: -moz-box !important;
+    list-style-image: url(chrome://addonmanagerfix/skin/radioOff.png) !important;
+    -moz-image-region: auto !important;
+    min-height: 16px !important;
+    min-height: 16px !important;
+    margin: 0px 2px 0 4px !important;
+  }
+  #detail-view radio[selected="true"],
+  #detail-view radio[selected="true"]:hover,
+  #detail-view radio:not([selected="true"]):hover {
+    background: url(chrome://addonmanagerfix/skin/back2.png) !important;
+  }
+  #detail-view radio[selected="true"] .radio-check {
+    list-style-image: url(chrome://addonmanagerfix/skin/radioOn.png) !important;
+  }
+  #detail-view radio:not([selected="true"]):hover .radio-check {
+    list-style-image: url(chrome://addonmanagerfix/skin/radioOver.png) !important;
+  }
+  #detail-view #detail-autoUpdate radio[label="Default"] .radio-icon {
+    -moz-image-region: rect(32px 160px 48px 144px) !important;
+  }
+}
