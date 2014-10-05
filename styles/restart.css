@@ -1,0 +1,12 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  #do-restart {
+    -moz-appearance: none !important;
+    display: -moz-box !important;
+    height: 27px !important;
+    width: 26px !important;
+    padding: 0 !important;
+  }
+  #do-restart .toolbarbutton-text {
+    display: none !important;
+  }
+}
