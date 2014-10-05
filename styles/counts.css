@@ -1,0 +1,6 @@
+@-moz-document url(about:addons), url(chrome://mozapps/content/extensions/extensions.xul) {
+  #sonco-item-cnt {
+    display: -moz-box !important;
+    /*pointer-events: none !important;*/
+  }
+}
