@@ -1,7 +1,7 @@
-content   addonmanagerfix				                                chrome/content/
-skin      addonmanagerfix				      classic/1.0    		        chrome/skin/
-locale 	  addonmanagerfix				      en-US 			              chrome/locale/en-US/
-override  chrome://mozapps/content/extensions/extensions.js   	chrome://addonmanagerfix/content/fix.js
-override	chrome://mozapps/content/extensions/extensions.xml  	chrome://addonmanagerfix/content/fix.xml
-override	chrome://mozapps/content/extensions/extensions.xul  	chrome://addonmanagerfix/content/fix.xul
-override	chrome://stylish/content/addon.xbl				            chrome://addonmanagerfix/content/fix.xbl
+content addonmanagerfix chrome/content/
+skin addonmanagerfix classic/1.0 chrome/skin/
+locale addonmanagerfix en-US chrome/locale/en-US/
+override chrome://mozapps/content/extensions/extensions.js chrome://addonmanagerfix/content/fix.js
+override chrome://mozapps/content/extensions/extensions.xml chrome://addonmanagerfix/content/fix.xml
+override chrome://mozapps/content/extensions/extensions.xul chrome://addonmanagerfix/content/fix.xul
+override chrome://stylish/content/addon.xbl chrome://addonmanagerfix/content/fix.xbl
