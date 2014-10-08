@@ -4,3 +4,7 @@
 Restores sorters and other functions/options to the Addon Manager
 
 ![](https://camo.githubusercontent.com/34aba35e2235cbfb98846fa8463423656579f881/68747470733a2f2f6d656469616372752e73682f7562593349436531715456632e706e67)
+
+####Settings
+
+![](https://mediacru.sh/bKuDLK6m0mMW.png)
